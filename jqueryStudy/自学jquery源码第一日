@@ -1,0 +1,17 @@
+最近项目中使用jquery中，发现对jquery的一些api了解的并不够深入，同时感觉自己很久没学习了，所以定下目标好好看一个月的jquery源码。
+今年算是自己发展迅速的一年，自认为从一个前端大菜鸟变成了入门级别的前端工程师，也认识了很多前端朋友。其中亦师亦友的bailnl大牛教我最多，请教他之后给了我一个地址：https://github.com/jquery/jquery 让我直接去自学。今天主要是理了一下目录结构。
+
+整个jquery项目里面有build external src 和test四个目录及下面的一堆文件。其中下面的文件主要是git 配置 npm包grunt配置等，可以不用多看，build是输出目录，external是引入外部的一些文件，包括requires.js sizzle等。
+test页面应该是对代码的一些测试，说来惭愧看了一个小时我才搞懂主要看src文件夹中的js。src文件夹中就是我们常用的api全部的源码了，最上面写着依赖的模块，下面的源码正文。
+
+今日学习总结
+
+1.core.js
+这一个js是整个jquery的架构，
+jQuery本身是一个构造函数
+jQuery = function( selector, context ) {
+	return new jQuery.fn.init( selector, context );
+}
+
+jQuery.fn 指向jQuery的原型对象
+jQuery.fn = jQuery.prototype = {}
